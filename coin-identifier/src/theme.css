@@ -1,0 +1,194 @@
+/* ===== Color system (vintage red & cream) ===== */
+:root {
+    --red: #b4002f;
+    --red-dark: #7f0021;
+    --cream: #fff7ef;
+    --paper: #fbf3e6;
+    --ink: #2b2b2b;
+    --accent: #d9b26f;
+    /* brass/gold */
+}
+
+/* ===== Page background with subtle lighting ===== */
+body {
+    background:
+        radial-gradient(60% 60% at 20% 10%, rgba(255, 255, 255, 0.25), transparent 60%),
+        radial-gradient(60% 60% at 80% 90%, rgba(255, 255, 255, 0.18), transparent 60%),
+        linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
+    background-attachment: fixed;
+    color: var(--ink);
+    font-family: 'Playfair Display', serif;
+}
+
+/* ===== Fancy card ===== */
+.coin-card {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.98));
+    /* Optional: add your own subtle noise file and uncomment next line */
+    /* , url('/paper-noise.png') repeat */
+    border: 1px solid var(--red);
+    border-radius: 20px;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, .25);
+    overflow: hidden;
+}
+
+/* ===== Header with ribbon and badge ===== */
+.coin-header {
+    background: linear-gradient(90deg, var(--red) 0%, #a80029 100%);
+    letter-spacing: .5px;
+}
+
+.coin-header .logo-text {
+    font-family: 'Playfair Display', serif;
+}
+
+.coin-badge {
+    background: var(--cream);
+    color: var(--red);
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+}
+
+/* Decorative diagonal ribbon */
+.corner-ribbon {
+    position: absolute;
+    content: "";
+    width: 180px;
+    height: 140%;
+    right: -70px;
+    top: -20%;
+    background: repeating-linear-gradient(45deg, rgba(255, 255, 255, .25) 0 10px, transparent 10px 20px);
+    transform: skewX(-15deg);
+    opacity: .6;
+}
+
+/* ===== Labels, fields & focus ===== */
+.small-label {
+    font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    font-weight: 600;
+    color: var(--red);
+}
+
+.form-raise {
+    transition: box-shadow .2s ease, transform .2s ease;
+}
+
+.form-raise:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 0 0 .2rem rgba(180, 0, 47, .15);
+    border-color: var(--red);
+}
+
+/* ===== Images hover lift ===== */
+.hover-lift {
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, .18);
+}
+
+/* ===== Section divider ===== */
+.divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--red), transparent);
+    margin: 1rem 0 1.25rem;
+}
+
+/* ===== Pills & chips ===== */
+.grade-pill {
+    background: var(--red);
+    color: #fff;
+    padding: .35rem .75rem;
+    border-radius: 999px;
+    font-weight: 600;
+    letter-spacing: .15px;
+}
+
+.price-chip {
+    background: var(--accent);
+    color: #3b2c12;
+    padding: .35rem .75rem;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+/* ===== Fancy list bullets ===== */
+.fancy-list .list-group-item {
+    background: transparent !important;
+    border: 0 !important;
+    padding-left: 1.35rem;
+    position: relative;
+}
+
+.fancy-list .list-group-item::before {
+    content: "◆";
+    position: absolute;
+    left: .25rem;
+    top: .35rem;
+    color: var(--red);
+    font-size: .8rem;
+}
+
+/* ===== Sidebar cards ===== */
+.terms-card {
+    background: linear-gradient(180deg, var(--cream), #fff);
+    border: 1px solid var(--red);
+    border-radius: 16px;
+}
+
+.terms-card .list-group-item {
+    background: transparent !important;
+}
+
+/* ===== Buttons with shine ===== */
+.btn-danger {
+    background-color: var(--red);
+    border-color: var(--red-dark);
+}
+
+.btn-danger:hover {
+    background-color: var(--red-dark);
+    border-color: var(--red-dark);
+}
+
+.btn-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-shine::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, .35) 50%, transparent 100%);
+    transform: skewX(-20deg);
+    transition: left .5s ease;
+}
+
+.btn-shine:hover::after {
+    left: 120%;
+}
+
+/* ===== Responsive tweaks ===== */
+@media (max-width: 767px) {
+    .coin-card {
+        border-radius: 16px;
+    }
+
+    .coin-badge {
+        width: 36px;
+        height: 36px;
+    }
+}
